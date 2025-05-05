@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 export default function Product() {
     const { id } = useParams();
 
-    async function getProducts(): Promise<Product> {
+    async function getProduct(): Promise<Product> {
         try {
             const response = await axios.get(
                 `https://fakestoreapi.com/products/${id}`
@@ -26,7 +26,7 @@ export default function Product() {
         isError,
     } = useQuery({
         queryKey: ['product', id],
-        queryFn: getProducts,
+        queryFn: getProduct,
     });
 
     useEffect(() => {
